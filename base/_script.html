@@ -1,0 +1,30 @@
+
+<script>
+  function initMap() {
+    var element = document.getElementById('footer__maps-item');
+    var options = {
+      zoom: 15,
+      center: {
+        lat: 49.401046,
+        lng: 26.961031999999932
+      }
+    };
+    var googleMap = new google.maps.Map(element, options);
+    var marker = new google.maps.Marker({
+      position: {
+        lat: 49.401046,
+        lng: 26.961031999999932
+      },
+      map: googleMap
+    });
+    var windowInfo = new google.maps.InfoWindow({
+      content: '<h4>Recovery</h4><p>Стоматологічна кліника</p>'
+    });
+    marker.addListener('click', function () {
+      windowInfo.open(googleMap, marker);
+    });
+  }
+</script>
+<script async="async" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3GK6ieR8tuEN2oFAhxG_S1Dxv2vhdOUo&amp;callback=initMap"></script>
+<script async="async" defer="defer" src="https://www.google.com/recaptcha/api.js"></script>
+<script src="js/common.min.js"></script>
